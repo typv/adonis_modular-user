@@ -1,9 +1,12 @@
 import type { HttpContext } from '@adonisjs/core/http'
-import User from "#modules/user/models/user";
+import User from "#common/models/user";
 
 export default class UserController {
   async index(ctx: HttpContext) {
-    const user = await User.find(3)
+    // const authUser = ctx.auth.user
+    // console.log("authUser: ", authUser);
+
+    const user = await User.all()
     return user
   }
 }
